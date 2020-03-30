@@ -1,0 +1,187 @@
+﻿@{
+    ViewData["Title"] = "聊天室";
+}
+
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: "微软雅黑"
+    }
+
+    input[type="text"] {
+        display: inline-block;
+        width: 190px;
+        height: 35px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    }
+
+    button {
+        display: inline-block;
+        padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        color: #333;
+        background-color: #fff;
+        border-color: #ccc;
+        width: 90px;
+    }
+
+        button:hover {
+            color: #333;
+            background-color: #e6e6e6;
+            border-color: #adadad;
+        }
+
+    .displayNone {
+        display: none;
+    }
+
+    .msgBlockContent {
+        padding-top: 4px;
+        color: #000000;
+    }
+
+    .msgBlockTime {
+        padding-top: 10px;
+        color: #0094ff;
+        font-size: 15px;
+    }
+
+    .msgBlockInfo {
+        padding-top: 8px;
+        color: #ff0000;
+    }
+
+    .divContent {
+        width: 500px;
+        height: 900px;
+        padding: 15px;
+        background-color: #F7F7F9;
+        background-image: url('/images/background.png');
+        background-size: cover;
+    }
+
+
+
+    .divContent {
+        margin: 10px auto;
+        margin-top: 10px;
+        width: 500px;
+        height: 900px;
+        padding: 15px;
+        background-color: #F7F7F9;
+        background-image: url('/images/background.png');
+        background-size: cover;
+    }
+
+    #output {
+        overflow-y: auto;
+        margin: 0px auto;
+        margin-top: 120px;
+        margin-bottom: 10px;
+        width: 400px;
+        height: 595px;
+        padding: 15px;
+        padding-top: 0px;
+    }
+
+    .me {
+        color: #ff6a00;
+        font-size: 18px;
+    }
+    /*PC*/
+    @@media (min-width: 992px) {
+        .login, .logout {
+            margin: 1px auto;
+            padding-left: 40px;
+        }
+    }
+    /*手机端*/
+    @@media screen and (max-width: 992px) {
+        .hiLabel {
+            display: none;
+        }
+
+        .divContent {
+            height: 660px;
+            width: 380px;
+            background-image: url('/images/background.png');
+            background-size: cover;
+        }
+
+        #output {
+            margin-top: 80px;
+            height: 450px;
+            padding-top: 5px;
+            padding-left: 33px;
+            overflow-y: auto;
+        }
+
+        .login, .logout {
+            margin: 1px auto;
+            padding-left: 25px;
+        }
+
+        input[type="text"] {
+            width: 100px;
+        }
+
+        .msgBlockInfo {
+            width: 295px;
+        }
+    }
+</style>
+
+<div class="divContent">
+
+    <div id="output"></div>
+
+    <div class="login" style="">
+        <input type="text" class="userName" placeholder="起个帅气的名字吧~~" style="margin-right:5px;" />
+        MM<input type="radio" name="sex" checked value="女" />GG<input type="radio" name="sex" value="男" />
+        <button class="btnLogin" onclick="login()">登录</button>
+    </div>
+
+    <div class="logout displayNone">
+        <button onclick="logout()">下线</button>
+        <span style="margin-right:10px;"></span>
+        <input type="text" id="sendInput" maxlength="200" placeholder="说点什么吧~~" />
+        <button onclick="send()">发送</button>
+    </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/moment/moment.js"></script>
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script>
+<script type="text/javascript">
+    
+</script>
+
+
