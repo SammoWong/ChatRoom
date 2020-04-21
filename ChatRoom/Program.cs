@@ -20,6 +20,7 @@ namespace ChatRoom
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    webBuilder.UseKestrel(options => options.ListenAnyIP(5000));
                     webBuilder.UseStartup<Startup>();
                 });
     }
